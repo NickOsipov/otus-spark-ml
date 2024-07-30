@@ -7,4 +7,3 @@ terraform.tfvars
 venv
 .venv
 terraform.tfstate.backup
-infrastructure

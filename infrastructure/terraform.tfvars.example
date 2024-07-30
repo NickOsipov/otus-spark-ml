@@ -1,0 +1,10 @@
+folder_id = "<your value>"
+zone = "ru-central1-a"
+instance_name = "otus-proxy-vm"
+image_id = "fd808e721rc1vt7jkd0o" # Ubuntu 20.04 LTS
+subnet_id = "<your value>"
+subnet_name = "otus-dataproc-subnet"
+service_account_id = "<your value>"
+public_key_path = "~/.ssh/yandex_cloud.pub"
+private_key_path = "~/.ssh/yandex_cloud"
+token = "<your value>"
