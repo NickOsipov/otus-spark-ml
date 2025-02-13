@@ -3,3 +3,4 @@ ipykernel==6.29.5
 numpy==2.0.1
 pandas==2.2.2
 scikit-learn==1.5.1
+invoke==2.2.0
