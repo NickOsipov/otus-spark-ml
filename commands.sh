@@ -1,7 +1,17 @@
 # Description: Команды для работы с Yandex.Cloud DataProc
 
+# Обновляем переменные окружения в файле .env
+# S3_BUCKET - название бакета S3
+# PROXY_VM_IP - IP-адрес прокси-виртуальной машины
+
+# Подгружаем переменные окружения
+source .env
+
+# Копируем данные в созданный бакет S3
+make upload-data
+
 # Подключаемся к прокси виртуальной машине 
-ssh ubuntu@{proxy_vm_ip}
+ssh ubuntu@${PROXY_VM_IP}
 
 # Подключаемся к мастер-ноде кластера
 ssh dataproc-master
@@ -10,7 +20,7 @@ ssh dataproc-master
 hdfs dfs -mkdir -p /user/ubuntu/data
 
 # Копируем данные из S3 в HDFS
-hadoop distcp s3a://{bucket_name}/ /user/ubuntu/data
+hadoop distcp s3a://${S3_BUCKET}/titanic/* /user/ubuntu/data/titanic
 
 # Проверяем, что данные скопировались
 hdfs dfs -ls /user/ubuntu/data
@@ -21,18 +31,18 @@ hdfs dfs -ls /user/ubuntu/data
 # Для этого необходимо пробросить порт 8888 с мастер-ноды на прокси-виртуальную машину и на локальную машину
 
 # Подключаемся к прокси виртуальной машине
-ssh -L 8888:localhost:8888 ubuntu@{proxy_vm_ip}
+ssh -L 8888:localhost:8888 ubuntu@${PROXY_VM_IP}
 
 # Подключаемся к мастер-ноде кластера
 ssh -L 8888:localhost:8888 dataproc-master
 
 # Запускаем Jupyter Notebook
 jupyter notebook \
-    --no-browser \
-    --port=8888 \
-    --ip=0.0.0.0 \
-    --allow-root \
-    --NotebookApp.token='' \
-    --NotebookApp.password=''
+  --no-browser \
+  --port=8888 \
+  --ip=0.0.0.0 \
+  --allow-root \
+  --NotebookApp.token='' \
+  --NotebookApp.password=''
 
 # Далее можем поключиться в VS Code к Jupyter Notebook по адресу http://localhost:8888
