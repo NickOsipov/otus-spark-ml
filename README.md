@@ -2,8 +2,9 @@
 
 ## План работы
 
-0. Развернем DataProc кластер из репозитория otus-practice-cloud-infra
-    - Заполняем переменные в `terraform.tfvars`
+0. Развернем DataProc кластер из репозитория [otus-practice-cloud-infra](https://github.com/NickOsipov/otus-practice-cloud-infra)
+    - Клонируем репозиторий
+    - Заполняем переменные в `infrastructure/terraform.tfvars`
     - Запускаем:
         ```bash
         cd infrastructure
