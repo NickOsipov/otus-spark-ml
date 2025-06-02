@@ -8,6 +8,7 @@
 source .env
 
 # Копируем данные в созданный бакет S3
+# Предварительно нужно добавить AWS_ACCESS_KEY_ID и AWS_SECRET_ACCESS_KEY в файл конфиг s3cmd
 make upload-data
 
 # Подключаемся к прокси виртуальной машине 
