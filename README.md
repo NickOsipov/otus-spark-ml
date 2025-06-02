@@ -4,10 +4,10 @@
 
 0. Развернем DataProc кластер из репозитория [otus-practice-cloud-infra](https://github.com/NickOsipov/otus-practice-cloud-infra)
     - Клонируем репозиторий
-    - Заполняем переменные в `infrastructure/terraform.tfvars`
+    - Заполняем переменные в `infra/terraform.tfvars`
     - Запускаем:
         ```bash
-        cd infrastructure
+        cd infra
         terraform init
         terraform plan
         terraform apply -auto-approve
