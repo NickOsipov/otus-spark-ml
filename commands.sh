@@ -9,6 +9,18 @@ source .env
 
 # Копируем данные в созданный бакет S3
 # Предварительно нужно добавить AWS_ACCESS_KEY_ID и AWS_SECRET_ACCESS_KEY в файл конфиг s3cmd
+
+# Роли для сервисного аккаунта
+# - storage.admin
+# - storage.uploader
+# - storage.viewer
+# - storage.editor
+# - vpc.user
+# - compute.admin
+# - dataproc.editor
+# - dataproc.agent
+# - mdb.dataproc.agent
+# - iam.serviceAccounts.user
 make upload-data
 
 # Подключаемся к прокси виртуальной машине 
