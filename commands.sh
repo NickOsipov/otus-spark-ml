@@ -33,7 +33,7 @@ ssh dataproc-master
 hdfs dfs -mkdir -p /user/ubuntu/data
 
 # Копируем данные из S3 в HDFS
-hadoop distcp s3a://${S3_BUCKET}/titanic/* /user/ubuntu/data/titanic
+hadoop distcp s3a://otus-bucket-b1gcq77orp7o97v8lnkm/titanic/* /user/ubuntu/data/titanic
 
 # Проверяем, что данные скопировались
 hdfs dfs -ls /user/ubuntu/data
